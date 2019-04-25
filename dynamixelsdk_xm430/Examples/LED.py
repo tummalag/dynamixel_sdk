@@ -23,7 +23,7 @@ from dynamixel_sdk import *                    # Uses Dynamixel SDK library
 PROTOCOL_VERSION            = 2.0               # See which protocol version is used in the Dynamixel
 
 # Default setting
-DXL_ID                      = 72                 # Dynamixel ID : 1
+DXL_ID                      = 1                   # Dynamixel ID : 1
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
@@ -31,11 +31,8 @@ DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used
 # Control Table Address
 ADDR_LED                    = 65
 
-
 LED_ENABLE                  = 1
 LED_DISABLE                 = 0
-
-
 
 # Initialize PortHandler instance
 # Set the port path
@@ -56,7 +53,6 @@ else:
     getch()
     quit()
 
-
 # Set port baudrate
 if portHandler.setBaudRate(BAUDRATE):
     print("Succeeded to change the baudrate")
@@ -65,7 +61,6 @@ else:
     print("Press any key to terminate...")
     getch()
     quit()
-
 
 while True:
     print("Press any key to continue! (or press ESC to quit!)")
@@ -81,7 +76,7 @@ while True:
     else:
         print("Dynamixel LED is ON")
     
-    time.sleep(5)
+    time.sleep(1)
 
     # Disable Dynamixel LED
     dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_LED, LED_DISABLE)
@@ -92,7 +87,7 @@ while True:
     else:
         print("Dynamixel LED is OFF")
 
-    time.sleep(4)
+    time.sleep(1)
  
 # Close port
 portHandler.closePort()
