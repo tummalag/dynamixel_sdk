@@ -29,18 +29,15 @@ ADDR_LED               = 65
 PROTOCOL_VERSION       = 2.0
 
 # Default setting
-DXL1_ID                = 71  
-DXL2_ID                = 72  
+DXL1_ID                = 1  
+DXL2_ID                = 2  
 BAUDRATE               = 1000000
 DEVICENAME             = '/dev/ttyUSB0' 
-
 
 LED_ENABLE             = 1
 LED_DISABLE            = 0
 
-
 portHandler = PortHandler(DEVICENAME)
-
 packetHandler = PacketHandler(PROTOCOL_VERSION)
 
 # Open port
@@ -51,7 +48,6 @@ else:
     print("Press any key to terminate...")
     getch()
     quit()
-
 
 # Set port baudrate
 if portHandler.setBaudRate(BAUDRATE):
@@ -78,8 +74,7 @@ elif dxl_error != 0:
 else:
     print("Dynamixel #%d has been successfully connected" % DXL2_ID)
 
-
-
+    
 while True:
     dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL1_ID, ADDR_LED, LED_ENABLE)
     if dxl_comm_result != COMM_SUCCESS:
@@ -97,7 +92,7 @@ while True:
     else:
         print("LED 2")
 
-    time.sleep(0.5)
+    time.sleep(1)
     t = LED_ENABLE
     LED_ENABLE = LED_DISABLE 
     LED_DISABLE = t
