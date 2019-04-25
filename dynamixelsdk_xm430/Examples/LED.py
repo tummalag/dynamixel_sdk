@@ -94,8 +94,6 @@ while True:
 
     time.sleep(4)
  
-
-
 # Close port
 portHandler.closePort()
 
