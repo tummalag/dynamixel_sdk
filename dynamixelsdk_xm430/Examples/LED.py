@@ -1,3 +1,5 @@
+# This program blinks the LED on dynamixel XM430-W350-R with 1 sec interval.
+
 import os
 import time
 
@@ -24,7 +26,7 @@ PROTOCOL_VERSION            = 2.0               # See which protocol version is 
 
 # Default setting
 DXL_ID                      = 1                   # Dynamixel ID : 1
-BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
+BAUDRATE                    = 1000000             # Dynamixel default baudrate : 1000000
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
